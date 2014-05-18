@@ -57,9 +57,9 @@ def my_hash_deletion_method(source, thing_to_delete)
   source.delete_if {|k,v| thing_to_delete == k }
 end
 # Identify and describe the ruby method you implemented. 
-# 
-#
-#
+# Both the array and hash will use 'delete_if' methods. For the array, delete the element if the element includes
+# 'thing_to_delete'. Make sure we change all elements to a string since we have integers in the array.
+# For the hash, we will delete the key/value if the key is equal to 'thing_to_delete'.
 
 
 ################## DRIVER CODE ###################################
@@ -77,8 +77,12 @@ p my_array_deletion_method(i_want_pets, "a") == ["I", 4, "pets", "but", "I", "on
 p my_hash_deletion_method(my_family_pets_ages, "George") == {"Evi" => 8, "Hoobie" => 5, "Bogart" => 6, "Poly" => 6, "Annabelle" => 2, "Ditto" => 5}
 
 # Reflect!
-# 
-# 
-# 
-# 
-# 
+=begin 
+ I had no clue hwo to go about this at first and had to look at the ruby docs to get an idea of how to tackle this challenge.  
+ I also had trouble understanding how the driver test code worked and what exactly "p" was.  After playing around with driver test code
+ I realized that it was a true/false statement and would pass true if the output was the same as what it had there, which is pretty cool.  and the p
+ is a kernel method that prints the value of .inspect which is useful for debugging and in this case for driver test code it is good to use.
+
+ Nothing was tedious but it was interesting because I was very curious about a lot of things in this challenge that I wasn't exactly sure of so 
+ I need to shed some light on some concepts that make more sense now than before.  
+=end 
