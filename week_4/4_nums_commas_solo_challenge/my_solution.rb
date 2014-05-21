@@ -33,16 +33,6 @@ def separate_comma(num)
 end 
 end 
 
-def seperate_comma(num)
-    num_string = num.to_s
-    if num_string < 1000
-        num_string 
-    elsif num_string >= 10000
-        num_string.insert(-4,",")
-    elsif num_string >= 100000
-        num_string.insert(-4,",") && num_string.insert(-4,",")
-
-
 # 3. Refactored Solution
 def separate_comma(num)
 	num_string = num.to_s
