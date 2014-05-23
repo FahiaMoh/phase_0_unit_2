@@ -6,45 +6,47 @@
 
  # This is the file you should end up editing. 
  
-def bakery_num(num_of_people, fav_food)
-  my_list = {"pie" => 8, "cake" => 6, "cookie" => 1}
+def bakery_num( num_of_people, fav_food ) # defines a method called bakery_num that takes two parameters, num_of_peope, fav_food
+  my_list = {"pie" => 8, "cake" => 6, "cookie" => 1} # Hash of avaialble foods and associated counts
+  
   pie_qty = 0
-  cake_qty = 0
+  cake_qty = 0           # quantity of the foods equals to 0 
   cookie_qty = 0
   
-  has_fave = false
+  has_fave = false # Initializes our has_fave tood to false
 
-  my_list.each_key do |k|
-  if k == fav_food
-  has_fave = true
-  fav_food = k
-  end
-  end
-  if has_fave == false
-  raise ArgumentError.new("You can't make that food")
-  else
-  fav_food_qty = my_list.values_at(fav_food)[0]
-  if num_of_people % fav_food_qty == 0
-    num_of_food = num_of_people / fav_food_qty
-    return "You need to make #{num_of_food} #{fav_food}(s)."
-  else num_of_people % fav_food_qty != 0
-    while num_of_people > 0
-    if num_of_people / my_list["pie"] > 0
-    pie_qty = num_of_people / my_list["pie"]
-    num_of_people = num_of_people % my_list["pie"]
-    elsif num_of_people / my_list["cake"] > 0
-    cake_qty = num_of_people / my_list["cake"]
-    num_of_people = num_of_people % my_list["cake"]
-    else
-    cookie_qty = num_of_people
-    num_of_people = 0
+  my_list.each_key do |key| # iterating over my_list keys to do a comparison 
+    if key == fav_food # Favorite food comparison
+      has_fave = true # confirms fav_food is in the list 
     end
-    end
-    return "You need to make #{pie_qty} pie(s), #{cake_qty} cake(s), and #{cookie_qty} cookie(s)."
+  # has_fave = true if key == fav_food
+  end
+  
+  if has_fave == false # my_list does not contain fav_food  
+    raise ArgumentError.new("You can't make that food") # Raise error if fav_food was not found
+  else # Fav_food was in the list
+    fav_food_qty = my_list[fav_food] #.values_at(fav_food)[0] # if in the list, return the quantity on hand *** refactor
+    if num_of_people % fav_food_qty == 0 # Checks if num_of_people is evenly divisable by the fav_food_qty
+      num_of_food = num_of_people / fav_food_qty # returns num_of_food eq to number of people / fav foods 
+      return "You need to make #{num_of_food} #{fav_food}(s)." # Return favorite food along with quantity
+    else #num_of_people % fav_food_qty != 0 # num_of_people was not evenly divisable by fav_food_qty
+      while num_of_people > 0 # while num_of_people is greater than zero 
+        if num_of_people / my_list["pie"] > 0 # At least more people than the quantity of pie will feed 
+          pie_qty = num_of_people / my_list["pie"] # quantity of pie is equal the number of people divided by my_list of pie 
+          num_of_people = num_of_people % my_list["pie"] # number of people ramaining after distributing pies
+        elsif num_of_people / my_list["cake"] > 0 # At least more people than the quantity of cake 
+          cake_qty = num_of_people / my_list["cake"] # quantity of cake is equal to the number of people divided by qty of people cake will feed
+          num_of_people = num_of_people % my_list["cake"] # number of people remaining after distributing cakes 
+        else # num_of_people is less than both qty that pie and cake will feed
+          cookie_qty = num_of_people # cookie quantity is equal to the number of people 
+          num_of_people = 0 # Set num_of_people to 0 in order to end the loop
+        end # Ending if-else conditions
+      end
+      return "You need to make #{pie_qty} pie(s), #{cake_qty} cake(s), and #{cookie_qty} cookie(s)."
     end
   end
 end
- 
+
 
 #-----------------------------------------------------------------------------------------------------
 #DRIVER CODE-- DO NOT MODIFY ANYTHING BELOW THIS LINE (except in the section at the bottom)
