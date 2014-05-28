@@ -17,48 +17,48 @@
 # the solved? method will return @solve 
 
 # 3. Initial Solution
-# class GuessingGame
-#   def initialize(answer)
-#     @answer = answer 
-#     @solve = false 
-#   end
-  
-#   def guess(guess)
-#   	@guess = guess 
-#       if @guess > @answer
-#       	@solve = false
-#   		:high
-#   	elsif @guess < @answer 
-#   		@solve = false 
-#   		:low 
-#   	elsif @guess == @answer 
-#   		@solve = true 
-#   		 :correct 
-#    	end 
-#   end 
-  
-#   def solved?
-#       	@solve  
-#   end
-# end
-
-# 4. Refactored Solution
 class GuessingGame
   def initialize(answer)
     @answer = answer 
-    @solve = false
+    @solve = false 
   end
-
-  def guess(guess) 
-      if guess > @answer then :high && @solve = false  end
-      if guess < @answer then :low && @solve = false end
-      if guess == @answer then :correct && @solve = true end 
+  
+  def guess(guess)
+  	@guess = guess 
+      if @guess > @answer
+      	@solve = false
+  		:high
+  	elsif @guess < @answer 
+  		@solve = false 
+  		:low 
+  	elsif @guess == @answer 
+  		@solve = true 
+  		 :correct 
+   	end 
   end 
   
-    def solved?
-        @solve 
+  def solved?
+      	@solve  
   end
 end
+
+# 4. Refactored Solution
+# class GuessingGame
+#   def initialize(answer)
+#     @answer = answer 
+#     @solve = false
+#   end
+
+#   def guess(guess) 
+#       if guess > @answer then :high && @solve = false  end
+#       if guess < @answer then :low && @solve = false end
+#       if guess == @answer then :correct && @solve = true end 
+#   end 
+  
+#     def solved?
+#         @solve 
+#   end
+# end
 
 
 
