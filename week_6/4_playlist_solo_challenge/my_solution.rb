@@ -5,14 +5,6 @@
 
 
 # Pseudocode
-# Define a class called Song
-#Initialize should take the title and artist and assign them
-#Should have a play method
-# Define a class called Playlist
-#Initialize should take the list of songs and store them in an array
-#Should have an add function that adds song to array
-#Should have a play_all function that iterates through array and puts song
-
 #create a class called Song
 # it will take two methods, initialize and play
 #initialize will take two parameters, the title and artist and pass these values into the 
