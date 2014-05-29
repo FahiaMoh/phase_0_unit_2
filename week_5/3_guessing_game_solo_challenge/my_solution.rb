@@ -44,6 +44,7 @@ end
 
 # 4. Refactored Solution
 # class GuessingGame
+# attr_reader :guess 
 #   def initialize(answer)
 #     @answer = answer 
 #     @solve = false
